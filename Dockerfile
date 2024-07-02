@@ -17,7 +17,7 @@ RUN set -x \
 && cd s6-overlay-helpers \
 && ./configure \
 && make \
-&& tools/install.sh -D -m 755 s6-overlay-suexec /package/admin/s6-overlay-helpers-0.1.0.2/command/s6-overlay-suexec \
+&& tools/install.sh -D -m 04755 s6-overlay-suexec /package/admin/s6-overlay-helpers-0.1.0.2/command/s6-overlay-suexec \
 && cd / \
 && apk del .build-deps \
 && rm -rf skalibs \
