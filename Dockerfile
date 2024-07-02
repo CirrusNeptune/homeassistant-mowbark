@@ -22,8 +22,7 @@ RUN set -x \
 && apk del .build-deps \
 && rm -rf skalibs \
 && rm -rf execline \
-&& rm -rf s6-overlay-helpers \
-&& rm -rf /usr/src/*
+&& rm -rf s6-overlay-helpers
 
 RUN pip3 install lirc
 RUN git clone -b ver4 https://github.com/CirrusNeptune/flux_led.git && pip install ./flux_led
