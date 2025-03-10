@@ -1,0 +1,1 @@
+# Homeassistant Image for Smarthome
