@@ -1,0 +1,7 @@
+{
+  "domain": "mowbark_door_rf",
+  "name": "MowBark Door RF",
+  "version": "0.1.0",
+  "iot_class": "local_push"
+}
+

@@ -1,0 +1,22 @@
+press_button:
+  fields:
+    entity_id:
+      required: true
+      selector:
+        entity:
+          integration: hdmi_cec_kernel
+          domain: media_player
+    button:
+      required: true
+      selector:
+        select:
+          options:
+            - "select"
+            - "up"
+            - "down"
+            - "left"
+            - "right"
+            - "device-root-menu"
+            - "back"
+            - "enter"
+
