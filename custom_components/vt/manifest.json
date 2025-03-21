@@ -1,0 +1,6 @@
+{
+  "domain": "vt",
+  "name": "VT switching interface",
+  "version": "0.1.0",
+  "iot_class": "local_push"
+}

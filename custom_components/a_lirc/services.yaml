@@ -1,0 +1,60 @@
+press_button:
+  fields:
+    entity_id:
+      required: true
+      selector:
+        entity:
+          integration: a_lirc
+          domain: remote
+    button:
+      required: true
+      selector:
+        select:
+          options:
+            - "Power"
+            - "Mute"
+            - "TV"
+            - "HDMI2"
+            - "HDMI3"
+            - "HDMI4"
+            - "Opt"
+            - "Coax"
+            - "Bt"
+            - "Aux"
+            - "USB"
+            - "Music"
+            - "Movie"
+            - "Game"
+            - "Night"
+            - "NoDSP"
+            - "AllChStereo"
+            - "Surround"
+            - "Setup"
+            - "InfoStop"
+            - "Return"
+            - "SsePlus"
+            - "SseMinus"
+            - "Left"
+            - "Right"
+            - "Enter"
+            - "BassPlus"
+            - "BassMinus"
+            - "VolPlus"
+            - "VolMinus"
+            - "CenterPlus"
+            - "CenterMinus"
+            - "TreblePlus"
+            - "TrebleMinus"
+            - "SurroundSidePlus"
+            - "SurroundSideMinus"
+            - "SurroundBackPlus"
+            - "SurroundBackMinus"
+            - "SystemMemory1"
+            - "SystemMemory2"
+            - "SystemMemory3"
+            - "BtPlayPause"
+            - "BtStop"
+            - "BtPrevTrack"
+            - "BtNextTrack"
+
+

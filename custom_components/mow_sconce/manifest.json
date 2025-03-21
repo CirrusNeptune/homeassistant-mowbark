@@ -1,0 +1,18 @@
+{
+  "domain": "mow_sconce",
+  "name": "Mow Sconce",
+  "codeowners": [
+    "@CirrusNeptune"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "network"
+  ],
+  "documentation": "https://a.mow",
+  "iot_class": "local_push",
+  "loggers": [
+    "mow_sconce"
+  ],
+  "requirements": ["construct==2.10.70"],
+  "version": "0.1.0"
+}

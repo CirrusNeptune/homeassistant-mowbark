@@ -1,0 +1,7 @@
+{
+  "domain": "hdmi_cec_kernel",
+  "name": "HDMI CEC Kernel",
+  "version": "0.1.0",
+  "iot_class": "local_push"
+}
+
