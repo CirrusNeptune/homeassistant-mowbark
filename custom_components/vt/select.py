@@ -61,7 +61,8 @@ class VtEventProtocol(asyncio.protocols.SubprocessProtocol):
 VT_NUMBERS_TO_NAMES = {
     1: 'Kodi',
     2: 'Steam',
-    3: 'KWin'
+    3: 'KWin',
+    4: 'Scritch'
 }
 VT_NAMES_TO_NUMBERS = {VT_NUMBERS_TO_NAMES[k]: k for k in VT_NUMBERS_TO_NAMES}
 
