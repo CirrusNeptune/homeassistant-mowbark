@@ -1,0 +1,30 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "device_id": "Scene Controller",
+          "light_id": "Light"
+        },
+        "description": "Pick a scene controller and light entity to bind together."
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scene_001": "Button 1 Scene",
+          "scene_002": "Button 2 Scene",
+          "scene_003": "Button 3 Scene",
+          "scene_004": "Button 4 Scene",
+          "scene_001_x2": "Button 1 x2 Scene",
+          "scene_002_x2": "Button 2 x2 Scene",
+          "scene_003_x2": "Button 3 x2 Scene",
+          "scene_004_x2": "Button 4 x2 Scene"
+        }
+      }
+    }
+  },
+  "title": "Manage Zooz 800 Scene Controllers"
+}

@@ -1,0 +1,12 @@
+{
+  "domain": "mowbark_scene_controller",
+  "name": "Manage Zooz 800 Scene Controllers",
+  "version": "0.1.0",
+  "codeowners": ["@CirrusNeptune"],
+  "config_flow": true,
+  "dependencies": ["zwave_js"],
+  "documentation": "https://www.home-assistant.io/integrations/mowbark_scene_controller",
+  "integration_type": "helper",
+  "iot_class": "calculated",
+  "quality_scale": "internal"
+}
