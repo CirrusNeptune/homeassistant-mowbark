@@ -41,6 +41,8 @@ class MowbarkSceneControllerEntity(Entity):
         self.bright_dim_task = None
         self.bright_dim_scene_idx = None
         self.big_led_color_value = None
+        self.last_led_color_parameters = {}
+        self.last_led_onoff_parameters = {}
 
     def _get_scene_controller_config_entry(self) -> ConfigEntry:
         device_registry = dr.async_get(self.hass)
@@ -84,16 +86,20 @@ class MowbarkSceneControllerEntity(Entity):
         if color_value is not None:
             color_parameter = SCENE_CONTROLLER_COLOR_PARAMETERS[conf_key]
             onoff_value = SCENE_CONTROLLER_ONOFF_VALUES[ALWAYS_ON]
-            yield self.hass.services.async_call(ZWAVEJS_DOMAIN, SERVICE_SET_CONFIG_PARAMETER,
-                                                {ATTR_DEVICE_ID: self.scene_controller_device_id,
-                                                 ATTR_CONFIG_PARAMETER: color_parameter,
-                                                 ATTR_CONFIG_VALUE: color_value})
+            if conf_key not in self.last_led_color_parameters or self.last_led_color_parameters[conf_key] != color_value:
+                self.last_led_color_parameters[conf_key] = color_value
+                yield self.hass.services.async_call(ZWAVEJS_DOMAIN, SERVICE_SET_CONFIG_PARAMETER,
+                                                    {ATTR_DEVICE_ID: self.scene_controller_device_id,
+                                                     ATTR_CONFIG_PARAMETER: color_parameter,
+                                                     ATTR_CONFIG_VALUE: color_value})
         else:
             onoff_value = SCENE_CONTROLLER_ONOFF_VALUES[ALWAYS_OFF]
-        yield self.hass.services.async_call(ZWAVEJS_DOMAIN, SERVICE_SET_CONFIG_PARAMETER,
-                                            {ATTR_DEVICE_ID: self.scene_controller_device_id,
-                                             ATTR_CONFIG_PARAMETER: onoff_parameter,
-                                             ATTR_CONFIG_VALUE: onoff_value})
+        if conf_key not in self.last_led_onoff_parameters or self.last_led_onoff_parameters[conf_key] != onoff_value:
+            self.last_led_onoff_parameters[conf_key] = onoff_value
+            yield self.hass.services.async_call(ZWAVEJS_DOMAIN, SERVICE_SET_CONFIG_PARAMETER,
+                                                {ATTR_DEVICE_ID: self.scene_controller_device_id,
+                                                 ATTR_CONFIG_PARAMETER: onoff_parameter,
+                                                 ATTR_CONFIG_VALUE: onoff_value})
 
     def _get_conf_color_value(self, conf_key) -> str | None:
         if conf_key in self.scenes:
@@ -129,9 +135,9 @@ class MowbarkSceneControllerEntity(Entity):
         if self.bright_dim_task is not None:
             return
         if scene_idx in {1, 2}:
-            step = 10
+            step = 20
         elif scene_idx in {3, 4}:
-            step = -10
+            step = -20
         else:
             return
         self.bright_dim_scene_idx = scene_idx
